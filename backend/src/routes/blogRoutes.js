@@ -1,7 +1,9 @@
-const express = require('express')
+const express = require("express");
 
-const {getBlogs} = require('../controllers/blogController')
+const { getBlogs, createBlog } = require("../controllers/blogController");
 
-const router = express.Router()
+const router = express.Router();
 
-router.route ('v1/api/blogs').get(getBlogs).post()
+router.route("/blogs").get(getBlogs).post(createBlog);
+
+module.exports = router;
