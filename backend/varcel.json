@@ -2,14 +2,14 @@
   "version": 2,
   "builds": [
     {
-      "src": "src/index.js",  // Adjust this if your main file is in another directory
+      "src": "src/server.js",  // Adjust the path to server.js
       "use": "@vercel/node"
     }
   ],
   "routes": [
     {
       "src": "/(.*)",
-      "dest": "/src/index.js"
+      "dest": "/src/server.js"  // Adjust the route to point to the correct location
     }
   ]
 }
