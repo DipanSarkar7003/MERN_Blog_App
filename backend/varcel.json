@@ -1,17 +1,15 @@
 {
-    "version": 2,
-    "builds": [
-      {
-        "src": "index.js", // Entry point for your app
-        "use": "@vercel/node"
-      }
-    ],
-    "routes": [
-      {
-        "src": "/(.*)",
-        "dest": "/"
-      }
-    ]
-  }
-
-  
+  "version": 2,
+  "builds": [
+    {
+      "src": "src/index.js",  // Adjust this if your main file is in another directory
+      "use": "@vercel/node"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "/src/index.js"
+    }
+  ]
+}
