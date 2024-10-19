@@ -7,7 +7,7 @@ function BlogList() {
     async function getBlogs() {
       try {
         const res = await fetch(
-          "https://mern-blog-app-r8bo.onrender.com/v1/api/blogs"
+          "https:mern-blog-app-r8bo.onrender.com/v1/api/blogs"
         );
         const data = await res.json();
         console.log(data);
