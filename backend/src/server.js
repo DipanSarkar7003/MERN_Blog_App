@@ -1,12 +1,11 @@
 const express = require("express");
-const app = express();
 const port = 3000;
 const connectDb = require("./config/db-config");
 const blogRoutes = require("./routes/blogRoutes");
+const app = express();
 const cors = require("cors");
 
-app.use(cors()); // enable cors for all routes
-
+app.use(cors());
 connectDb();
 app.get("/", (req, res) => {
   res.send("server in on");
