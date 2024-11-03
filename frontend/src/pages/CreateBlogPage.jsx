@@ -15,7 +15,7 @@ function CreateBlogPage() {
     };
 
     try {
-      const response = await fetch("http://localhost:3000/v1/api/blogs", {
+      const response = await fetch("http://localhost:3000/v1/api/blogs/", {
         method: "POST",
         body: JSON.stringify(newBlog),
         headers: {
