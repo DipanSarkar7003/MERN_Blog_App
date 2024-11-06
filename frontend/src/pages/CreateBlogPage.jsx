@@ -40,7 +40,9 @@ function CreateBlogPage() {
 
   return (
     <>
-      <form className="max-w-sm mx-auto bg-green-300 p-[2rem] rounded-xl mt-[3rem]">
+      <form className="max-w-sm mx-auto bg-green-300 p-[2rem] rounded-xl mt-[3rem]"  encType="multipart/form-data"
+      method="post"
+      action="/blogs">
         <h1 className="text-3xl text-center mb-4 uppercase bolder">
           Create new blog
         </h1>
@@ -86,6 +88,7 @@ function CreateBlogPage() {
             id="small-input"
             className="block w-full p-2 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-xs focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
           ></input>
+          <input type="file" name="cover-image" />
         </div>
         <div className="text-center mt-3">
           <button

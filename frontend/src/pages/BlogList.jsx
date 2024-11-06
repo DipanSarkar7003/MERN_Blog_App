@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import BlogItem from "../components/blogItem/BlogItem";
 
 function BlogList() {
   const [blogs, setBlogs] = useState([]);
@@ -13,13 +14,9 @@ function BlogList() {
       });
       if (res.ok) {
         console.log(res);
-        setBlogs((prevBlogs) =>
-          prevBlogs.filter((blog) => blog._id !== id)
-        );
-      }
-      else{
+        setBlogs((prevBlogs) => prevBlogs.filter((blog) => blog._id !== id));
+      } else {
         console.log("Failed to delete blog");
-     
       }
     } catch (error) {
       console.log(error);
@@ -44,25 +41,8 @@ function BlogList() {
   if (!blogs) return <div>No Blogs found</div>;
 
   return (
-    <div className="flex">
-      {blogs.map((blog) => {
-        return (
-          <div key={blog._id} className="border bg-blue-200 p-2 ">
-            <h2>{blog.title}</h2>
-            <p>{blog.content}</p>
-            <p>Posted by: {blog.author}</p>
-            <button className="px-4 py-2 bg-green-400 rounded mr-2">
-              edit
-            </button>
-            <button
-              onClick={() => handleDelete(blog._id)}
-              className="px-4 py-2 bg-red-400 rounded"
-            >
-              delete
-            </button>
-          </div>
-        );
-      })}
+    <div className=" grid grid-cols-2">
+      <BlogItem blogs={blogs} handleDelete={handleDelete} />
     </div>
   );
 }
