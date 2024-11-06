@@ -1,5 +1,3 @@
-import React from "react";
-
 const BlogItem = ({ blogs, handleDelete }) => {
   return (
     <div>
