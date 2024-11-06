@@ -1,4 +1,5 @@
 const Blog = require("../models/BlogModel");
+const uploadCloudinary = require("../utils/cloudinary");
 
 //Function to get the blogs
 const getBlogs = async (req, res) => {
@@ -8,12 +9,20 @@ const getBlogs = async (req, res) => {
 //function to create a blog instance
 
 const createBlog = async (req, res) => {
-  const { title, content, author } = req.body;
-  const blog = new Blog({ title, content, author });
-
-  const createdBlog = await blog.save();
-  res.status(201).json(createdBlog);
-  console.log(req.body);
+  try {
+    const { title, content, author } = req.body;
+    const { path } = req.file;
+    // Upload the image to cloudinary
+    const result = await uploadCloudinary(path);
+    console.log(result)
+    const image = result.url;
+    const blog = new Blog({ title, content, author, image });
+    const createdBlog = await blog.save();
+    res.status(201).json(createdBlog);
+  } catch (err) {
+    console.log(err);
+    res.status(500).json({ message: "Server Error" });
+  }
 };
 
 //function to get blog by ID

@@ -2,8 +2,8 @@ const express = require("express");
 const port = 3000;
 const connectDb = require("./config/db-config");
 const blogRoutes = require("./routes/blogRoutes");
-const app = express();
 const cors = require("cors");
+const app = express();
 
 app.use(cors());
 connectDb();
