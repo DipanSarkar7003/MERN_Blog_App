@@ -11,9 +11,7 @@ const storage = multer.diskStorage({
 
 const upload = multer(
   { storage },
-  {
-    limits: { fileSize: 10 * 1024 * 1024 }, // 10 MB limit, adjust as needed
-  }
+ 
 );
 
 // This middleware will be used to handle file uploads in the create blog route

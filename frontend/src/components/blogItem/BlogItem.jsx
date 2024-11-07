@@ -1,4 +1,6 @@
-const BlogItem = ({ blogs, handleDelete }) => {
+
+import {Link} from 'react-router-dom'
+const BlogItem = ({ blogs, handleDelete ,  }) => {
   return (
     <div>
       {blogs.map((blog) => {
@@ -8,8 +10,11 @@ const BlogItem = ({ blogs, handleDelete }) => {
             <h1 className="text-3xl capitalize">{blog.title}</h1>
             <p>{blog.content}</p>
             <p className="text-slate-700">Posted by: {blog.author}</p>
-            <button className="px-4 py-2 bg-green-400 rounded mr-2">
-              edit
+            <button className="px-4 py-2 bg-green-400 rounded mr-2"
+           >
+            <Link to= {`/blogs/${blog._id}`} >
+               See more
+            </Link>
             </button>
             <button
               onClick={() => handleDelete(blog._id)}
