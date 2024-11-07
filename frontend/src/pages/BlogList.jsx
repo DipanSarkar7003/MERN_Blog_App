@@ -24,6 +24,10 @@ function BlogList() {
     // handle the response and update the blog list accordingly
   }
 
+  async function handleSeeMore (id){
+console.log(id)
+  }
+
   useEffect(() => {
     async function getBlogs() {
       try {
@@ -42,7 +46,7 @@ function BlogList() {
 
   return (
     <div className=" grid grid-cols-2">
-      <BlogItem blogs={blogs} handleDelete={handleDelete} />
+      <BlogItem blogs={blogs} handleDelete={handleDelete} handleSeeMore={handleSeeMore} />
     </div>
   );
 }

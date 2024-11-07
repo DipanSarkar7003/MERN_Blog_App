@@ -8,7 +8,7 @@ import BlogDetail from "./pages/BlogDetail";
 import Navbar from "./components/navbar/Navbar";
 import Home from "./pages/Home.jsx";
 import Login from "./pages/Login.jsx";
-
+import SingleBlog from "./pages/SingleBlog.jsx";
 function App() {
   return (
     <div className="App">
@@ -18,6 +18,7 @@ function App() {
           <Route path="/" element={<Login />} />
           <Route path="/home" element={<Home />} />
           <Route path="/blogs" element={<BlogList />} />
+          <Route path="/blogs/:id" element={<SingleBlog />} />
           <Route path="/createBlog" element={<CreateBlogPage />} />
           <Route path="/editBlog" element={<EditBlogPage />} />
           <Route path="/blogDetail" element={<BlogDetail />} />
