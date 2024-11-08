@@ -3,6 +3,9 @@ import BlogItem from "../components/blogItem/BlogItem";
 
 function BlogList() {
   const [blogs, setBlogs] = useState([]);
+  const topics = ["Science", "Computer", "Data Science ", "History" , "Self Improvement" , "Development" , 
+    "Desipline" , "Machine Learing"
+  ];
 
   async function handleDelete(id) {
     console.log("delete clicked");
@@ -24,8 +27,8 @@ function BlogList() {
     // handle the response and update the blog list accordingly
   }
 
-  async function handleSeeMore (id){
-console.log(id)
+  async function handleSeeMore(id) {
+    console.log(id);
   }
 
   useEffect(() => {
@@ -45,8 +48,28 @@ console.log(id)
   if (!blogs) return <div>No Blogs found</div>;
 
   return (
-    <div className=" grid grid-cols-2">
-      <BlogItem blogs={blogs} handleDelete={handleDelete} handleSeeMore={handleSeeMore} />
+    <div className=" mt-6 blog-list  px-[5rem]">
+      <BlogItem
+        blogs={blogs}
+        handleDelete={handleDelete}
+        handleSeeMore={handleSeeMore}
+      />
+      <div className="p-4">
+        <p className="mb-5 font-semibold text-[18px]">Recommended topics</p>
+
+        <div className="topic-list flex flex-wrap gap-4">
+          {topics.map((topic, index) => {
+            return (
+              <p
+                key={index}
+                className="pill bg-[#F2F2F2] rounded-3xl px-4 py-2 text-slate-800 capitalize"
+              >
+                {topic}{" "}
+              </p>
+            );
+          })}
+        </div>
+      </div>
     </div>
   );
 }

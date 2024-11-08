@@ -1,0 +1,18 @@
+.btn-ui{
+    background-color: black;
+    padding: 8px 20px;
+    ;
+    background: rgba(25, 25, 25, 1);
+    border-radius: 20px;
+    font-size: 1.3rem;
+    color: aliceblue;
+}
+.btn-ui-secondary{
+    background-color: black;
+    padding: 8px 20px;
+    ;
+    background: #34AB45;
+    border-radius: 20px;
+    font-size: 1.3rem;
+    color: aliceblue;
+}
