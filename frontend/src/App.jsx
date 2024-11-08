@@ -1,5 +1,6 @@
 import "./App.css";
 import "./index.css";
+import "./Common.css"
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import BlogList from "./pages/BlogList.jsx";
 import CreateBlogPage from "./pages/CreateBlogPage";
