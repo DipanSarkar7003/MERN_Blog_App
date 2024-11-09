@@ -1,0 +1,12 @@
+@font-face {
+    font-family: gt-super;
+    src: url("./assets/fonts/gt-super-400-normal.ttf");
+  }
+  @font-face {
+      font-family: sohne;
+      src: url("./assets/fonts/sohne-400-normal.ttf");
+  }
+
+  .blogItem{
+    font-family: sohne;
+  }
