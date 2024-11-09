@@ -5,8 +5,10 @@ function CreateBlogPage() {
   const [content, setContent] = useState("");
   const [author, setAuthor] = useState("");
   const [image, setImage] = useState(null);
+  const [isloading, setIsloading] = useState(false);
 
   const handleSubmit = async (e) => {
+    setIsloading(true); // setting loading state to true when form is submitted
     e.preventDefault();
 
     // const newBlog = {
@@ -23,7 +25,7 @@ function CreateBlogPage() {
     formData.append("image", image); // Append the selected file
 
     try {
-      console.log(formData)
+      console.log(formData);
       const response = await fetch("http://localhost:3000/v1/api/blogs/", {
         method: "POST",
         body: formData,
@@ -43,7 +45,17 @@ function CreateBlogPage() {
     setTitle("");
     setContent("");
     setAuthor("");
+    setImage(null); // reset image state when form is submitted
+    setIsloading(false); // setting loading state to false when form is submitted successfully
   };
+
+  if (isloading) {
+    return (
+      <div className="flex items-center  h-screen justify-center">
+        <h1 className="text-green-500 text-3xl">Loading...</h1>
+      </div>
+    );
+  }
 
   return (
     <>
@@ -106,7 +118,7 @@ function CreateBlogPage() {
         />
         <div className="text-center mt-3">
           <button
-            className="border bg-green-800 text-white px-4 py-2 rounded"
+            className="border bg-green-700  text-white px-4 py-2 rounded focus:bg-green-900 focus:"
             onClick={handleSubmit}
             type="submit"
           >
