@@ -11,6 +11,8 @@ function SideBlogItem({ blog }) {
         </p>
         <h2 className="font-bold">{blog.title}</h2>
 
+        <p className="text-xs text-slate-500 py-2">{Math.floor(Math.random() * 4)}d ago</p>
+
         <Link
           className="text-sm font-medium text-blue-700 tracking-wide"
           to={`/blogs/${blog._id}`}
