@@ -3,18 +3,17 @@
   src: url("./assets/fonts/gt-super-400-normal.ttf");
 }
 @font-face {
-    font-family: sohne;
-    src: url("./assets/fonts/sohne-400-normal.ttf");
+  font-family: sohne;
+  src: url("./assets/fonts/sohne-400-normal.ttf");
 }
 
-*{
-    margin: 0; 
-    padding: 0;
-    box-sizing: border-box;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: sohne ;
 }
-body{
 
-}
 .landing-headding {
   font-size: 106px;
   font-family: gt-super, Georgia, Cambria, "Times New Roman", Times, serif;
@@ -22,26 +21,33 @@ body{
   color: #242424 !important;
   font-weight: 500;
 }
-.landing-page-para{
-    color: #242424;
-    font-size: 22px;
-    line-height: 28px;
-    font-family: sohne, "Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-weight: 500;
-    padding: 2rem 0;
+.landing-page-para {
+  color: #242424;
+  font-size: 22px;
+  line-height: 28px;
+  font-family: sohne, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 500;
+  padding: 2rem 0;
 }
 
-.landing-wrapper{
-    background-color: red;
-    padding:  7rem;
-    background: url("./assets/images/landing-bg.webp") no-repeat right;
-    background-size:contain ;
+.landing-wrapper {
+  background-color: red;
+  padding: 7rem;
+  background: url("./assets/images/landing-bg.webp") no-repeat right;
+  background-size: contain;
 }
-
 
 /* BLOG PAGE STYLNG STARTS HERE  */
 
-.blog-list{
-    display: grid ;
-    grid-template-columns: 2fr 1fr;
+.blog-list {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+}
+
+/* Single blog page  */
+
+.singleItemWrapper {
+  padding: 2rem;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
 }
