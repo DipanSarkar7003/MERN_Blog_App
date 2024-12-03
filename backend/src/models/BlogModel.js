@@ -3,12 +3,12 @@ const mongoose = require("mongoose");
 const blogSchema = new mongoose.Schema({
   title: {
     type: String,
-    
-    // required: true,
+
+    required: true,
   },
   content: {
     type: String,
-    // required: true,
+    required: true,
   },
   author: {
     type: String,
@@ -16,14 +16,12 @@ const blogSchema = new mongoose.Schema({
   image: {
     type: String,
     // required: true,
-    default: 'default-image.jpg', // Placeholder image if no image is provided. Replace with your actual image storage path.
-  }
-
+    default: "default-image.jpg", // Placeholder image if no image is provided. Replace with your actual image storage path.
+  },
 });
 
+// Cretaing the Blog Model out of blogSchema
 
-// Cretaing the Blog Model out of blogSchema 
+const Blog = mongoose.model("Blog", blogSchema);
 
-const Blog = mongoose.model('Blog', blogSchema)
-
-module.exports = Blog ;
+module.exports = Blog;
