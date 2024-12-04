@@ -13,7 +13,7 @@ const userSchema = new mongoose.Schema({
   password: {
     type: String,
     required: true,
-    // select: false,
+    select: false,
   },
 });
 
@@ -31,8 +31,12 @@ userSchema.pre("save", async function (next) {
   } catch (err) {
     console.log(err);
     next(err);
+
   }
 });
+
+
+
 
 const User = mongoose.model("User", userSchema);
 module.exports = User;
