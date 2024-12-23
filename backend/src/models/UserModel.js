@@ -21,9 +21,7 @@ const userSchema = new mongoose.Schema({
 
 userSchema.pre("save", async function (next) {
   //if password not  changed then return
-
   if (!this.isModified("password")) return next();
-
   //hash password before save it to the database
   try {
     this.password = await bcrypt.hash(this.password, 12);
@@ -31,12 +29,8 @@ userSchema.pre("save", async function (next) {
   } catch (err) {
     console.log(err);
     next(err);
-
   }
 });
-
-
-
 
 const User = mongoose.model("User", userSchema);
 module.exports = User;
