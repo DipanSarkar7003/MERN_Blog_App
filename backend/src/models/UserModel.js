@@ -13,7 +13,7 @@ const userSchema = new mongoose.Schema({
   password: {
     type: String,
     required: true,
-    // select: false,
+    select: false,
   },
 });
 
@@ -21,9 +21,7 @@ const userSchema = new mongoose.Schema({
 
 userSchema.pre("save", async function (next) {
   //if password not  changed then return
-
   if (!this.isModified("password")) return next();
-
   //hash password before save it to the database
   try {
     this.password = await bcrypt.hash(this.password, 12);
