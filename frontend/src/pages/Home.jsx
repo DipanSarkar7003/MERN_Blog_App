@@ -1,6 +1,9 @@
 import { Link } from "react-router-dom";
 
 const Home = () => {
+  const token = localStorage.getItem("token");
+  console.log(token)
+
   return (
     <div className="home">
       <div className="landing">
