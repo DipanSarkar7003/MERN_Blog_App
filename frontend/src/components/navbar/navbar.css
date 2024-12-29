@@ -10,3 +10,10 @@
     2px solid green;
     font-family:gt-super;
 }
+.profileWrapper{
+    padding: 10px 15px ;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 100%;
+}

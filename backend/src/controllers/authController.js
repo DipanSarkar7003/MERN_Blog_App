@@ -46,9 +46,11 @@ const login = async (req, res) => {
       user.token = token;
       user.password = undefined;
       res.status(200).json({
+        status: true,
         message: "Login successful",
+        data: user,
         token,
-        user,
+        timestamp: new Date().toISOString(),
       });
     } else {
       res.status(403).json({
@@ -56,7 +58,11 @@ const login = async (req, res) => {
       });
     }
   } catch (err) {
-    res.status(500).json({ message: "Server Error" });
+    res.status(500).json({
+      status: false,
+      message: "Server Error",
+      error: err.message,
+    });
     console.log("Error logging in");
     console.log(err);
   }
@@ -83,30 +89,32 @@ const protect = async (req, res, next) => {
   try {
     jwtdata = jwt.verify(token, process.env.JWT_SECRET);
 
-    if (!jwtdata) {
+    if (!jwtdata?.id) {
       res
         .status(403)
         .json({ message: " verification failed , please try again !" });
+      return;
     }
+
+    // check if the user  still exist
+
+    const ourUser = await User?.findById(jwtdata.id);
+    console.log(ourUser);
+    if (!ourUser) {
+      return next(
+        res.status(401).json({
+          message: "User no longer exists",
+        })
+      );
+    }
+    next();
   } catch (err) {
-    // console.log(err);
+    console.log(err.message);
+
     res
       .status(403)
       .json({ message: "Token verification failed , please try again !" });
   }
-
-  // check if the user  still exist
-
-  const ourUser = await User.findById(jwtdata.id);
-  console.log(ourUser);
-  if (!ourUser)
-    return next(
-      res.status(401).json({
-        message: "User no longer exists",
-      })
-    );
-
-  next();
 };
 
 module.exports = { register, login, protect };

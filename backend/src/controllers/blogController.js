@@ -3,9 +3,22 @@ const uploadCloudinary = require("../utils/cloudinary");
 const fs = require("fs");
 //Function to get the blogs
 const getBlogs = async (req, res) => {
-  const blogs = await Blog.find();
-  res.json(blogs);
+  try {
+    const blogs = await Blog.find();
+    res.json({
+      status: true,
+      message: "All blogs fetched successfully",
+      data: blogs,
+    });
+  } catch (error) {
+    res.status(500).json({
+      status: false,
+      message: "Server error",
+      error: err.message,
+    });
+  }
 };
+
 //function to create a blog instance
 
 const createBlog = async (req, res) => {
