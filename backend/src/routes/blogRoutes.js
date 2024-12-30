@@ -15,7 +15,7 @@ const {
 
 const router = express.Router();
 
-router.route("/blogs").get(protect, getBlogs).post(upload, createBlog); // Apply `upload` middleware to handle image upload on POST
+router.route("/blogs").get( getBlogs).post(upload, createBlog); // Apply `upload` middleware to handle image upload on POST
 router.route("/blogs/:id").delete(deleteBlog).get(getBlogById);
 
 module.exports = router;
